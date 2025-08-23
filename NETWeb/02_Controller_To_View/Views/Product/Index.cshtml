@@ -1,0 +1,10 @@
+﻿<h3>Hello Product Page</h3>
+@{
+    // Razor => Html sayfası içinde C# yazamayı sağlar.
+}
+<ul>
+    @foreach (var product in (List<string>)ViewData["products"])
+    {
+        <li>@product</li>
+    }
+</ul>
