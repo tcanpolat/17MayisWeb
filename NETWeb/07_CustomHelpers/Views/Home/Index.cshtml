@@ -1,0 +1,10 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@using _07_CustomHelpers.Helpers
+<div class="text-center">
+   <h6>@StringHelper.CapitalizeForFirstLetter("hello world from custom helpers")</h6>
+</div>
+<div class="text-center">
+    <h6>@StringHelper.CapitalizeWords("hello world from custom helpers")</h6>
+</div>

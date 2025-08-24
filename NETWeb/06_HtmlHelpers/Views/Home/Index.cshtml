@@ -1,0 +1,41 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model _06_HtmlHelpers.Models.User
+
+<div class="text-center">
+   <h5>HTML Helper</h5>
+</div>
+<div>
+    @using(Html.BeginForm("Submit","Home",FormMethod.Post))
+    {
+        <fieldset>
+            <legend>Html Helper Form Example</legend>
+            <div>
+                @Html.LabelFor(model => model.Name)
+                @Html.TextBoxFor(model => model.Name)
+                @Html.ValidationMessageFor(model => model.Name)
+            </div>
+            <div>
+                @Html.LabelFor(model => model.Age)
+                @Html.TextBoxFor(model => model.Age)
+                @Html.ValidationMessageFor(model => model.Age)
+            </div>
+            <div>
+                @Html.LabelFor(model => model.IsSubscribed)
+                @Html.CheckBoxFor(model => model.IsSubscribed)
+            </div>
+            <div>
+                @Html.DropDownListFor(model => model.Country,Model.CountryList)
+            </div>
+            <div>
+                @Html.RadioButtonFor(model => model.Gender,"Male") Male
+                @Html.RadioButtonFor(model => model.Gender, "Female") Female
+            </div>
+            <div>
+                <input type="submit" value="Form Submit" />
+            </div>
+        </fieldset>
+    }
+    @Html.ValidationSummary()
+</div>
