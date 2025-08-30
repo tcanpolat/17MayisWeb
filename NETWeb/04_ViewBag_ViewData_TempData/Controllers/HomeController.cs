@@ -10,10 +10,7 @@ namespace _04_ViewBag_ViewData_TempData.Controllers
          Controller'dan View'e veri taþýmak için kullanýlan yöntemler
          1. ViewBag: Dinamik bir özellik olup. Controllerdan viewe veri taþýmak için kullanýlýr.
          2. ViewData: Sözlük(Dictonary) benzeri bir yapýdýr. ve controllerdan viewe veri taþýr.
-         3. TempData: Geçici veri taþýmak için kullanýlýr ve iki sonuç(view-actionresult) arasýnda veri taþýmayý saðlar.
-         
-         
-         
+         3. TempData: Geçici veri taþýmak için kullanýlýr ve iki sonuç(view-actionresult) arasýnda veri taþýmayý saðlar.       
          */
        
         public IActionResult Index()
