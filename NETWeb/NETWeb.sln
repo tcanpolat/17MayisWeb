@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "10_Models_Binding", "10_Mod
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "11_FluentValidation", "11_FluentValidation\11_FluentValidation.csproj", "{59BD26FD-7BC8-420B-99EE-CFF016A8C89B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "12_Dependency_Injection", "12_Dependency_Injection\12_Dependency_Injection.csproj", "{708EB687-81D8-4EAA-86C2-AB2DEE3D22C9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +77,10 @@ Global
 		{59BD26FD-7BC8-420B-99EE-CFF016A8C89B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{59BD26FD-7BC8-420B-99EE-CFF016A8C89B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{59BD26FD-7BC8-420B-99EE-CFF016A8C89B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{708EB687-81D8-4EAA-86C2-AB2DEE3D22C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{708EB687-81D8-4EAA-86C2-AB2DEE3D22C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{708EB687-81D8-4EAA-86C2-AB2DEE3D22C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{708EB687-81D8-4EAA-86C2-AB2DEE3D22C9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,6 +1,7 @@
 using _11_FluentValidation.Models;
 using _11_FluentValidation.ViewModels;
 using FluentValidation;
+using FluentValidation.Results;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -17,13 +18,37 @@ namespace _11_FluentValidation.Controllers
         }
 
         public IActionResult Index()
-        {   
-            return View();
+        {
+            var model = new HomePageViewModel
+            {
+                Kisi = new Kisi(),
+                Adres = new Adres()
+            };
+
+            return View(model);
         }
 
-        public IActionResult Privacy()
+        [HttpPost]
+        public IActionResult Submit(HomePageViewModel model)
         {
-            return View();
+            // modeli validate et
+            ValidationResult result = _validator.Validate(model);
+
+            if (!result.IsValid)
+            {
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError(error.PropertyName, error.ErrorMessage);
+                }
+                return View("Index",model);
+            }
+
+            return View("Success",model);
+        }
+
+        public IActionResult Success(HomePageViewModel model)
+        {
+            return View(model);
         }
 
        

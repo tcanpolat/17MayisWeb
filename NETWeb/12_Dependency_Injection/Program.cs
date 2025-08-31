@@ -1,9 +1,7 @@
-﻿using _11_FluentValidation.Validators;
-using FluentValidation;
-using FluentValidation.AspNetCore;
-using Microsoft.AspNetCore.Mvc;
+using _12_Dependency_Injection.Services.Abstract;
+using _12_Dependency_Injection.Services.Concrete;
 
-namespace _11_FluentValidation
+namespace _12_Dependency_Injection
 {
     public class Program
     {
@@ -11,16 +9,10 @@ namespace _11_FluentValidation
         {
             var builder = WebApplication.CreateBuilder(args);
 
-
+            // Add services to the container.
             builder.Services.AddControllersWithViews();
-            builder.Services.AddValidatorsFromAssemblyContaining<HomePageViewModelValidator>();
-
-            builder.Services.AddFluentValidationAutoValidation(options =>
-            {
-                options.DisableDataAnnotationsValidation = true;
-            });
-
-            builder.Services.AddFluentValidationClientsideAdapters();
+            // LifeCycle
+            builder.Services.AddSingleton<IMyService, MyService>();
 
             var app = builder.Build();
 

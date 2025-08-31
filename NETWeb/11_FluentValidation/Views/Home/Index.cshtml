@@ -1,8 +1,49 @@
-﻿@{
+﻿@model _11_FluentValidation.ViewModels.HomePageViewModel
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Fluent Validation</h1>
 </div>
+<form asp-action="Submit" method="POST">
+    <div class="form-group">
+        <label asp-for="Kisi.Ad" class="control-label"></label>
+        <input asp-for="Kisi.Ad" class="form-control"/>
+        <span asp-validation-for="Kisi.Ad" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Kisi.Soyad" class="control-label"></label>
+        <input asp-for="Kisi.Soyad" class="form-control" />
+        <span asp-validation-for="Kisi.Soyad" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Kisi.Yas" class="control-label"></label>
+        <input asp-for="Kisi.Yas" class="form-control" />
+        <span asp-validation-for="Kisi.Yas" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Adres.AdresTanim" class="control-label"></label>
+        <input asp-for="Adres.AdresTanim" class="form-control" />
+        <span asp-validation-for="Adres.AdresTanim" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Adres.Sehir" class="control-label"></label>
+        <input asp-for="Adres.Sehir" class="form-control" />
+        <span asp-validation-for="Adres.Sehir" class="text-danger"></span>
+    </div>
+    <div>
+        <input type="submit" value="Submit" class="btn btn-primary mt-2" />
+    </div>
+</form>
+
+@section Scripts {
+    @{
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/4.0.0/jquery.validate.unobtrusive.min.js"></script>
+
+        await Html.PartialAsync("_ValidationScriptsPartial");
+    }
+}
+

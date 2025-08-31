@@ -1,4 +1,6 @@
-﻿namespace _11_FluentValidation.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace _11_FluentValidation.Models
 {
     public class Kisi
     {
