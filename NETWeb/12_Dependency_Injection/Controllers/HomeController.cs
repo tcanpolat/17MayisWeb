@@ -20,6 +20,12 @@ namespace _12_Dependency_Injection.Controllers
             return View();
         }
 
-       
+        public IActionResult About()
+        {
+            var stundets = _myService.GetStudents();
+            return View();
+        }
+
+
     }
 }

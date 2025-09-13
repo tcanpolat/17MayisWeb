@@ -12,6 +12,17 @@ namespace _12_Dependency_Injection
             // Add services to the container.
             builder.Services.AddControllersWithViews();
             // LifeCycle
+            /* 
+             IMyService ve MyService Container'a eklenir.
+             NET Core Dependency Injectionda servislerin ömrünü  (lifecycle) belirtmek için
+             üç ana yöntem kullanýlýr.
+             AddSingelton,AddScoped,AddTransient. Her birinin avantajlarý ve dezavantajlarý vardýr.
+             
+             1. AddTransient: Bu yöntem her istek için yeni bir nesne oluþturur. Bu servis her kullanýldýðýnda yeni bir örneðin(instance) oluþturulacaðý anlamýna gelir. Performans açýsýndan maliyetli olabilir çünkü her istekte farklý nesne oluþturulur.
+             2. AddScoped: Her Http isteði (request) baþýna bir nesne oluþturulur. Ayný istek içinde ayný nesne kullanýlýr. Ancak farklý isteklerde farklý nesneler oluþur. Ýstekler arasý veri paylaþýmý yapýlmaz.Bu sebeple bazý durumlarda da verimsiz olabilir.
+             3. AddSingelton: Uygulama baþladýðýnda bir kez oluþturulan ve uygulama yaþam döngüsü boyunca ayný kalan tek bir nesne oluþturulur. Performans açýsýndan en verimlisidir. Çünkü nesne bir defa oluþturulur.
+             
+             */
             builder.Services.AddSingleton<IMyService, MyService>();
 
             var app = builder.Build();
