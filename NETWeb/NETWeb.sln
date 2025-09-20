@@ -35,6 +35,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "15_Filter_Operations", "15_
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "16_AutoMapper", "16_AutoMapper\16_AutoMapper.csproj", "{BEC22531-58D2-42D3-912F-254CBDAA8FD0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "17_AdoNetExample", "17_AdoNetExample\17_AdoNetExample.csproj", "{DF6C84E5-17DB-4FEF-A91A-90F5C661AC91}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "18_DapperExample", "18_DapperExample\18_DapperExample.csproj", "{27B30CE5-7EE4-42C6-853A-9259B4EEA223}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -105,6 +109,14 @@ Global
 		{BEC22531-58D2-42D3-912F-254CBDAA8FD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BEC22531-58D2-42D3-912F-254CBDAA8FD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BEC22531-58D2-42D3-912F-254CBDAA8FD0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF6C84E5-17DB-4FEF-A91A-90F5C661AC91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF6C84E5-17DB-4FEF-A91A-90F5C661AC91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF6C84E5-17DB-4FEF-A91A-90F5C661AC91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF6C84E5-17DB-4FEF-A91A-90F5C661AC91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27B30CE5-7EE4-42C6-853A-9259B4EEA223}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27B30CE5-7EE4-42C6-853A-9259B4EEA223}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27B30CE5-7EE4-42C6-853A-9259B4EEA223}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27B30CE5-7EE4-42C6-853A-9259B4EEA223}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

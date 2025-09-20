@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1>Welcome AdoNet</h1>
+    <form method="POST" asp-action="AddData" class="mb-4">
+        <button type="submit" class="btn btn-primary">Add Data</button>
+    </form>
+    <form method="POST" asp-action="AddDataSecure" class="mb-4">
+        <div>
+            <input type="text" name="FirstName" placeholder="FirstName" class="mb-2" required />
+        </div>
+        <div>
+            <input type="text" name="LastName" placeholder="LastName" class="mb-2" required />
+        </div>
+        <div>
+            <input type="text" name="Age" placeholder="Age" class="mb-2" required />
+        </div>
+        <div>
+            <button type="submit" class="btn btn-primary">Add Data Secure</button>
+        </div>
+    </form>
+    <a href="/Home/GetData" class="btn btn-secondary">Get Data</a>
+    <a href="/Home/GetCount" class="btn btn-secondary">Get Count</a>
+</div>
