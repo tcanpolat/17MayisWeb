@@ -1,4 +1,4 @@
-namespace _18_DapperExample.Models
+namespace _19_EntityFrameworkExample.Models
 {
     public class ErrorViewModel
     {

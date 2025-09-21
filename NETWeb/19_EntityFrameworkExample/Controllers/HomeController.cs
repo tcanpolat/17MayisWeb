@@ -1,8 +1,8 @@
-using _18_DapperExample.Models;
+using _19_EntityFrameworkExample.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
-namespace _18_DapperExample.Controllers
+namespace _19_EntityFrameworkExample.Controllers
 {
     public class HomeController : Controller
     {

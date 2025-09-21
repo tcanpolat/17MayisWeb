@@ -1,6 +1,4 @@
-using _18_DapperExample.Data;
-
-namespace _18_DapperExample
+namespace _19_EntityFrameworkExample
 {
     public class Program
     {
@@ -10,8 +8,6 @@ namespace _18_DapperExample
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
-
-            builder.Services.AddSingleton<DapperContext>();
 
             var app = builder.Build();
 
@@ -32,7 +28,7 @@ namespace _18_DapperExample
 
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Product}/{action=Index}/{id?}");
+                pattern: "{controller=Home}/{action=Index}/{id?}");
 
             app.Run();
         }
