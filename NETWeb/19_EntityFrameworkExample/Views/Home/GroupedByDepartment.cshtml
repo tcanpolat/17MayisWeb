@@ -1,0 +1,47 @@
+﻿@model IEnumerable<GroupedStudentViewModel>
+@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="d-flex mb-3">
+    <a asp-action="Create" class="btn btn-link">Öğrenci Ekle</a>
+    <form asp-action="QuerySyntax" method="POST">
+        <input type="submit" value="Query Syntax" class="btn btn-primary" />
+    </form>
+    <form asp-action="MethodSyntax" method="POST">
+        <input type="submit" value="Method Syntax" class="btn btn-primary" />
+    </form>
+</div>
+
+<div class="text-center">
+    @foreach (var group in Model)
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        İsim
+                    </th>
+                    <th>
+                        Yaş
+                    </th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var student in group.Students)
+                {
+                    <tr>
+                        <td>
+                         @student.Name
+                        </td>
+                        <td>
+                           @student.Age
+                        </td>
+    
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+   
+</div>

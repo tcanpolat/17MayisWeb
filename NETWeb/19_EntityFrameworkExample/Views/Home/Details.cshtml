@@ -1,0 +1,28 @@
+﻿@model Student
+
+<div class="text-center">
+        <dl class="row">
+            <dt class="col-md-4">
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+            <dd class="col-md-8">
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+            <dt class="col-md-4">
+                @Html.DisplayNameFor(model => model.Age)
+            </dt>
+            <dd class="col-md-8">
+                @Html.DisplayFor(model => model.Age)
+            </dd>
+            <dt class="col-md-4">
+                @Html.DisplayNameFor(model => model.Department)
+            </dt>
+            <dd class="col-md-8">
+            @Html.DisplayFor(model => model.Department)
+            </dd>    
+        </dl>  
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Düzenle</a><br />
+    <a asp-action="Index">Geri Dön</a>
+</div>
