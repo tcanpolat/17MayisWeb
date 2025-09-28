@@ -1,6 +1,8 @@
 using _19_EntityFrameworkExample.Data;
+using _19_EntityFrameworkExample.Extensions;
 using _19_EntityFrameworkExample.Models;
 using _19_EntityFrameworkExample.ViewModels;
+using EFCore.BulkExtensions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
@@ -192,6 +194,75 @@ namespace _19_EntityFrameworkExample.Controllers
                 }).ToList();
 
             return View(groupedStudents);
+        }
+
+        // Bazý db iþleri için özel methodlar yazmamýz gerekebilir. Bunlara custom extension
+        // method diyoruz.
+        // Öðrencileri yaþ aralýðýna göre gruplayan method.
+        public IActionResult CustomExtensionMethod()
+        {
+            var students = _context.Students.ToList();
+            var groupedStudentsByAge = students.GroupByAgeRange();
+            return View(groupedStudentsByAge);
+        }
+
+        public IActionResult GetStudentsByDepartment()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult GetStudentsByDepartment(string department)
+        {
+            var students = _context.Students
+                            .FromSqlInterpolated($"EXEC GetStudentsByDepartment {department}")
+                            .ToList();
+
+            ViewData["Students"] = students;
+            return View();
+        }
+
+        public IActionResult RawSql()
+        {
+            var students = _context.Students
+                            .FromSqlRaw("select * from Students where Age > 18")
+                            .ToList();
+            return View("Index", students);
+        }
+
+        [HttpPost("Transaction")]
+        public IActionResult AddStudentsByTransaction([FromBody] List<Student> students)
+        {
+            using var transaction = _context.Database.BeginTransaction();
+
+            try
+            {
+                _context.Students.AddRange(students);
+                _context.SaveChanges();
+                transaction.Commit();
+            }
+            catch (Exception)
+            {
+                transaction.Rollback();
+                return StatusCode(500, "Öðrenciler eklenirken bir hata oluþtu");
+            }
+
+            return Ok();
+        }
+
+        public IActionResult BulkInsert()
+        {
+            var stundets = new List<Student>
+            {
+                new Student { Name = "Samet", Age = 22, Department = "Yazýlým" },
+                new Student { Name = "Melih", Age = 23, Department = "Elektrik" },
+                new Student { Name = "Efe", Age = 25, Department = "Elektronik" }
+
+            };
+
+            _context.BulkInsert(stundets);
+
+            return RedirectToAction("Index");
         }
     }
 }

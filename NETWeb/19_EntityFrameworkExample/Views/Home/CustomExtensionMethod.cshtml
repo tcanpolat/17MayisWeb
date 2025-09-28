@@ -1,12 +1,12 @@
-﻿@model IEnumerable<GroupedStudentViewModel>
+﻿@model IDictionary<string,List<Student>>
 @{
     ViewData["Title"] = "Home Page";
 }
-
+<h1>Öğrenci Listesi - Yaş Aralığına Göre Gruplama</h1>
 <div class="text-center">
     @foreach (var group in Model)
     {
-        <h2>@group.Department</h2>
+        <h2>@group.Key</h2>
         <table class="table">
             <thead>
                 <tr>
@@ -16,24 +16,29 @@
                     <th>
                         Yaş
                     </th>
-
+                    <th>
+                        Bölüm
+                    </th>
                 </tr>
             </thead>
             <tbody>
-                @foreach (var student in group.Students)
+                @foreach (var student in group.Value)
                 {
                     <tr>
                         <td>
-                         @student.Name
+                            @student.Name
                         </td>
                         <td>
-                           @student.Age
+                            @student.Age
                         </td>
-    
+                        <td>
+                            @student.Department
+                        </td>
+
                     </tr>
                 }
             </tbody>
         </table>
     }
-   
+
 </div>

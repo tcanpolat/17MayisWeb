@@ -3,13 +3,17 @@
     ViewData["Title"] = "Home Page";
 }
 <div class="d-flex mb-3">
-    <a asp-action="Create" class="btn btn-link">Öğrenci Ekle</a>
-    <form asp-action="QuerySyntax" method="POST">
+    <a asp-action="Create" class="btn btn-link mx-2">Öğrenci Ekle</a>
+    <form asp-action="QuerySyntax" method="POST" class="mx-2">
         <input type="submit" value="Query Syntax" class="btn btn-primary"/>
     </form>
-    <form asp-action="MethodSyntax" method="POST">
+    <form asp-action="MethodSyntax" method="POST" class="mx-2">
         <input type="submit" value="Method Syntax" class="btn btn-primary" />
     </form>
+    <a asp-action="GetStudentsByDepartment" class="btn btn-primary mx-2">Öğrencileri Bölüme Göre Listele (Procedure)</a>
+    <a asp-action="RawSql" class="btn btn-primary mx-2">RawSql</a>
+    <button id="addStudentsByTransaction" class="btn btn-primary mx-2">Transaction İle Ekle</button>
+    <a asp-action="BulkInsert" class="btn btn-primary mx-2">Bulk Insert</a>
 </div>
 
 <div class="text-center">
@@ -50,3 +54,32 @@
         </tbody>
    </table>
 </div>
+@section Scripts{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#addStudentsByTransaction").click(function(){
+                var students = [
+                    {Name: "Ali",Age: 20,Department: "Elektronik" },
+                    {Name: "Ayşe",Age: 30,Department: "Bilgisayar" },
+                ];
+
+                $.ajax(
+                    {
+                        url: '@Url.Action("AddStudentsByTransaction","Home")',
+                        type: 'POST',
+                        contentType: 'application/json',
+                        data:JSON.stringify(students),
+                        success: function(){
+                            alert("Öğrenciler başarıyla eklendi");
+                            location.reload()
+                        },
+                        error: function(xhr,status,error){
+                            alert("Bir Hata oluştu" + error)
+                        }
+                    }
+                )
+            })
+        })
+    </script>
+}
